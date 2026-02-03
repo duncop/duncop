@@ -5,18 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const pretendard = localFont({
-    src: [
-        {
-            path: "../assets/fonts/Pretendard-Regular.woff2",
-            weight: "400",
-            style: "normal",
-        },
-        {
-            path: "../assets/fonts/Pretendard-Medium.woff2",
-            weight: "500",
-            style: "normal",
-        },
-    ],
+    src: "../assets/fonts/PretendardVariable.woff2",
     variable: "--font-pretendard",
 });
 
@@ -38,7 +27,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${pretendard.variable} ${sebang_gothic.variable} antialiased dark:bg-gray1000 select-none`}
+                className={`${pretendard.variable} ${sebang_gothic.variable} font-medium antialiased dark:bg-gray1000 select-none`}
             >
                 <Header />
                 <div className="w-6xl h-full m-auto pt-30 pb-15">

@@ -36,7 +36,6 @@ body {
     color: var(--text-color);
     font-family: var(--font-pretendard), sans-serif;
     animation-duration: 200ms;
-    font-weight: 500;
 }
 
 * {
