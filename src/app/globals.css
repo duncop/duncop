@@ -18,10 +18,14 @@
     --color-badge-green: #a4ffe6;
     --color-badge-green-dark: #39685b;
     --color-text-green: #009d71;
+    --color-hover-green: #1dd09e;
+    --color-hover-green-dark: #72f4cf;
+
     --color-red: #ff436c;
     --color-badge-red: #ffa6b9;
     --color-badge-red-dark: #713a46;
     --color-text-red: #c00105;
+
     --color-neople: #fabe00;
 }
 
