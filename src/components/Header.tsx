@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 w-full h-15 border-b flex justify-between items-center px-[20%] border-gray300 dark:border-gray900">
+            <header className="fixed top-0 w-full h-15 border-b flex justify-between items-center px-[20%] text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
                 <Link href="/" className="logo">
                     DUN<span className="text-main">COP</span>
                 </Link>
