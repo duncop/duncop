@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const pretendard = localFont({
     src: [
@@ -37,10 +38,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${pretendard.variable} ${sebang_gothic.variable} antialiased dark:bg-gray1000`}
+                className={`${pretendard.variable} ${sebang_gothic.variable} antialiased dark:bg-gray1000 select-none`}
             >
                 <Header />
-                {children}
+                <div className="w-6xl h-full m-auto pt-30 pb-15">
+                    {children}
+                </div>
+                <Footer />
             </body>
         </html>
     );
