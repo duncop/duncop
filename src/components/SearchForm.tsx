@@ -9,7 +9,7 @@ export default function SearchForm() {
     const [bufferCut, setBufferCut] = useState("");
     const [setCount, setSetCount] = useState("1");
     const [babyCount, setBabyCount] = useState("0");
-    const [adventureName, setAdventureName] = useState<string>("");
+    const [adventure, setAdventure] = useState<string>("");
 
     const setCountHandler = (
         e: React.MouseEvent<HTMLButtonElement>,
@@ -51,7 +51,7 @@ export default function SearchForm() {
 
     return (
         <form
-            className="w-lg p-10 flex flex-col gap-3 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
+            className="w-xl p-10 flex flex-col gap-3 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
             onSubmit={() => {}}
         >
             <div className="flex gap-3">
@@ -152,12 +152,12 @@ export default function SearchForm() {
                 <Input
                     id="adventure-name"
                     placeholder="모험단 이름 입력"
-                    value={adventureName}
-                    onChange={(e) => setAdventureName(e.target.value)}
+                    value={adventure}
+                    onChange={(e) => setAdventure(e.target.value)}
                 >
                     모험단
                 </Input>
-                {adventureName.length < 30 && (
+                {adventure.length < 30 && (
                     <Search className="absolute right-4 top-1/2 translate-0.5 text-gray500 dark:text-gray700" />
                 )}
             </div>

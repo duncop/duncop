@@ -29,7 +29,9 @@ export default function Input({
                     className="relative dark:border-gray700 h-12.5 w-full rounded-xl border border-gray-300 px-4 flex items-center text-gray500 dark:text-gray700"
                 >
                     {placeholder ? (
-                        <span className="text-gray1000">{placeholder}</span>
+                        <span className="text-gray1000 dark:text-white">
+                            {placeholder}
+                        </span>
                     ) : (
                         "선택된 파일 없음"
                     )}
