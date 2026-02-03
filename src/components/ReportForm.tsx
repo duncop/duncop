@@ -7,7 +7,10 @@ export default function ReportForm() {
     const [contentsImage, setContentsImage] = useState<File | null>(null);
 
     return (
-        <form className="w-xl flex flex-col gap-10">
+        <form
+            className="w-xl flex flex-col gap-10"
+            onSubmit={(e) => e.preventDefault()}
+        >
             <div className="flex flex-col gap-2">
                 <label htmlFor="reporter" className="font-semibold text-lg">
                     신고자
