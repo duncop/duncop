@@ -36,18 +36,28 @@
     --text-color: white;
 }
 
-body {
-    color: var(--text-color);
-    font-family: var(--font-pretendard), sans-serif;
-    animation-duration: 200ms;
-}
-
 * {
     transition-duration: 200ms;
 }
-
+body {
+    color: var(--text-color);
+    font-family: var(--font-pretendard), sans-serif;
+}
 button {
     cursor: pointer;
+}
+h1 {
+    font-size: var(--text-5xl);
+    font-family: var(--font-sebang-gothic), sans-serif;
+}
+h2 {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+}
+h3 {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
 }
 
 .logo {
