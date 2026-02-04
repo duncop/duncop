@@ -4,22 +4,22 @@ export default function Footer() {
     return (
         <footer className="w-full h-15 pr-20 border-t flex gap-5 items-center justify-end border-gray300 dark:border-gray900">
             <Link
-                href="/"
+                href="/help"
                 className="p-3 text-gray700 hover:text-gray900 dark:text-gray500 dark:hover:text-gray300"
             >
                 도움말
             </Link>
             <Link
-                href="/"
+                href="/ask"
                 className="p-3  text-gray700 hover:text-gray900 dark:text-gray500 dark:hover:text-gray300"
             >
                 문의하기
             </Link>
             <Link
-                href="/"
+                href="/privacy-policy"
                 className="p-3  text-gray700 hover:text-gray900 dark:text-gray500 dark:hover:text-gray300"
             >
-                개인정보처리방침
+                개인정보 처리방침
             </Link>
             <Link
                 href="https://developers.neople.co.kr/"

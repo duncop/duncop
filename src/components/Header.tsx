@@ -37,7 +37,7 @@ export default function Header() {
                         </Link>
                     ))}
                     <div
-                        className={`absolute bottom-0 w-30 h-1 bg-gray1000 dark:bg-white ${path !== "/" && "translate-x-30"}`}
+                        className={`absolute bottom-0 w-30 h-1 bg-gray1000 dark:bg-white ${path === "/" ? "" : path === "/report" ? "translate-x-30" : "opacity-0"}`}
                     />
                 </nav>
                 <button
