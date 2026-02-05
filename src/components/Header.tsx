@@ -23,7 +23,7 @@ export default function Header() {
         <>
             <header className="fixed z-1 top-0 w-full h-15 border-b flex justify-between items-center px-[20%] text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
                 <Link href="/" className="logo">
-                    DUN<span className="text-main">COP</span>
+                    DUN<span className="t-main">COP</span>
                 </Link>
                 <nav className="relative h-full flex">
                     {nav.map((n) => (

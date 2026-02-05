@@ -14,7 +14,8 @@
     --color-gray200: #efefef;
     --color-gray100: #f7f7f7;
 
-    --color-main: #30e4b2;
+    --color-main: #1ad7a2;
+    --color-main-dark: #30e4b2;
     --color-badge-green: #a4ffe6;
     --color-badge-green-dark: #39685b;
     --color-text-green: #009d71;
@@ -51,17 +52,30 @@ h1 {
     font-family: var(--font-sebang-gothic), sans-serif;
 }
 h2 {
-    font-size: var(--text-5xl);
+    font-size: var(--text-4xl);
     font-weight: var(--font-weight-semibold);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
 }
 h3 {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+}
+h4 {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
 }
 
 .logo {
     font-family: var(--font-sebang-gothic), sans-serif;
+}
+
+@layer components {
+    .t-main {
+        @apply text-main  dark:text-main-dark;
+    }
+    .b-main {
+        @apply bg-main dark:bg-main-dark;
+    }
 }
 
 *::-webkit-scrollbar {
