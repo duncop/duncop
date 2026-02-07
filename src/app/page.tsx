@@ -1,6 +1,4 @@
-import AdventureCard from "@/components/AdventureCard";
-import Menual from "@/components/Menual";
-import SearchForm from "@/components/SearchForm";
+import Main from "@/components/Main";
 
 export default function Home() {
     return (
@@ -8,19 +6,7 @@ export default function Home() {
             <h1>
                 DUN<span className="t-main">COP</span>
             </h1>
-            <SearchForm />
-            {true ? (
-                <div className="w-full">
-                    <p className="text-lg mb-2">
-                        검색 결과 <span className="t-main">1</span>
-                    </p>
-                    <div className="w-full flex gap-3">
-                        <AdventureCard />
-                    </div>
-                </div>
-            ) : (
-                <Menual />
-            )}
+            <Main />
         </div>
     );
 }

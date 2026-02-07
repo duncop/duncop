@@ -1,73 +1,49 @@
-"use client";
-
-import { useState } from "react";
 import Input from "./Input";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 
-export default function SearchForm() {
-    const [dealerCut, setDealerCut] = useState("");
-    const [bufferCut, setBufferCut] = useState("");
-    const [setCount, setSetCount] = useState("1");
-    const [babyCount, setBabyCount] = useState("0");
-    const [adventure, setAdventure] = useState<string>("");
-
-    const setCountHandler = (
+type SearchFormProps = {
+    form: FormType;
+    setForm: React.Dispatch<React.SetStateAction<FormType>>;
+    setCountHandler: (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
-    ) => {
-        e.preventDefault();
-
-        if (!setCount) {
-            setSetCount("1");
-        }
-        if (type === "up" && +setCount < 8) {
-            setSetCount((+setCount + 1).toString());
-        }
-        if (type === "down" && +setCount > 1) {
-            setSetCount((+setCount - 1).toString());
-        }
-    };
-
-    const babyCountHandler = (
+    ) => void;
+    babyCountHandler: (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
-    ) => {
-        e.preventDefault();
+    ) => void;
+    submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+};
 
-        if (!babyCount) {
-            setBabyCount("0");
-        }
-        if (type === "up") {
-            if (babyCount === "0") setBabyCount("1");
-            if (babyCount === "1") setBabyCount("2");
-            if (babyCount === "2") setBabyCount("8");
-        }
-        if (type === "down") {
-            if (babyCount === "1") setBabyCount("0");
-            if (babyCount === "2") setBabyCount("1");
-            if (babyCount === "8") setBabyCount("2");
-        }
-    };
-
+export default function SearchForm({
+    form,
+    setForm,
+    setCountHandler,
+    babyCountHandler,
+    submitHandler,
+}: SearchFormProps) {
     return (
         <form
             className="w-xl p-10 flex flex-col gap-3 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
-            onSubmit={() => {}}
+            onSubmit={(e) => submitHandler(e)}
         >
             <div className="flex gap-3">
                 <div className="relative">
                     <Input
                         id="dealer-cut"
                         placeholder="숫자 입력"
-                        value={dealerCut}
+                        value={form.dealerCut}
                         onChange={(e) =>
-                            setDealerCut(e.target.value.replace(/\D/g, ""))
+                            setForm((data) => ({
+                                ...data,
+                                dealerCut: e.target.value.replace(/\D/g, ""),
+                            }))
                         }
                         maxLength={3}
                     >
                         딜러컷
                     </Input>
-                    {dealerCut && (
+                    {form.dealerCut && (
                         <span className="absolute right-4 top-1/2 translate-y-0.5 text-gray700 dark:text-gray500">
                             억
                         </span>
@@ -77,15 +53,18 @@ export default function SearchForm() {
                     <Input
                         id="buffer-cut"
                         placeholder="숫자 입력"
-                        value={bufferCut}
+                        value={form.bufferCut}
                         onChange={(e) =>
-                            setBufferCut(e.target.value.replace(/\D/g, ""))
+                            setForm((data) => ({
+                                ...data,
+                                bufferCut: e.target.value.replace(/\D/g, ""),
+                            }))
                         }
                         maxLength={3}
                     >
                         버퍼컷
                     </Input>
-                    {bufferCut && (
+                    {form.bufferCut && (
                         <span className="absolute right-4 top-1/2 translate-y-0.5 text-gray700 dark:text-gray500">
                             만
                         </span>
@@ -97,9 +76,12 @@ export default function SearchForm() {
                     <Input
                         id="set-count"
                         placeholder="1"
-                        value={setCount}
+                        value={form.setCount}
                         onChange={(e) =>
-                            setSetCount(e.target.value.replace(/[^1-8]/g, ""))
+                            setForm((data) => ({
+                                ...data,
+                                setCount: e.target.value.replace(/[^1-8]/g, ""),
+                            }))
                         }
                         maxLength={1}
                     >
@@ -107,12 +89,14 @@ export default function SearchForm() {
                     </Input>
                     <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
+                            type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
                             onClick={(e) => setCountHandler(e, "up")}
                         >
                             <ChevronUp size={20} />
                         </button>
                         <button
+                            type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
                             onClick={(e) => setCountHandler(e, "down")}
                         >
@@ -124,9 +108,15 @@ export default function SearchForm() {
                     <Input
                         id="baby-count"
                         placeholder="0"
-                        value={babyCount}
+                        value={form.babyCount}
                         onChange={(e) =>
-                            setBabyCount(e.target.value.replace(/[^0128]/g, ""))
+                            setForm((data) => ({
+                                ...data,
+                                babyCount: e.target.value.replace(
+                                    /[^0128]/g,
+                                    "",
+                                ),
+                            }))
                         }
                         maxLength={1}
                     >
@@ -134,12 +124,14 @@ export default function SearchForm() {
                     </Input>
                     <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
+                            type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
                             onClick={(e) => babyCountHandler(e, "up")}
                         >
                             <ChevronUp size={20} />
                         </button>
                         <button
+                            type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
                             onClick={(e) => babyCountHandler(e, "down")}
                         >
@@ -152,14 +144,23 @@ export default function SearchForm() {
                 <Input
                     id="adventure-name"
                     placeholder="모험단 이름 입력"
-                    value={adventure}
-                    onChange={(e) => setAdventure(e.target.value)}
+                    maxLength={50}
+                    value={form.adventure}
+                    onChange={(e) =>
+                        setForm((data) => ({
+                            ...data,
+                            adventure: e.target.value,
+                        }))
+                    }
                 >
                     모험단
                 </Input>
-                {adventure.length < 30 && (
-                    <Search className="absolute right-4 top-1/2 translate-0.5 text-gray500 dark:text-gray700" />
-                )}
+                <button
+                    type="submit"
+                    className={`absolute right-4 top-1/2 translate-0.5 text-gray500 dark:text-gray700 ${form.adventure.length > 30 && "opacity-0 pointer-events-none"}`}
+                >
+                    <Search />
+                </button>
             </div>
         </form>
     );
