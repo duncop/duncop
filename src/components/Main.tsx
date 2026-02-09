@@ -4,6 +4,7 @@ import AdventureCard from "@/components/AdventureCard";
 import Menual from "@/components/Menual";
 import SearchForm from "@/components/SearchForm";
 import { useState } from "react";
+import { searchAdventure } from "@/apis/adventure";
 
 export default function Main() {
     const [form, setForm] = useState({
@@ -63,9 +64,18 @@ export default function Main() {
                 setForm((data) => ({ ...data, babyCount: "2" }));
         }
     };
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSearched(true);
+
+        if (form.dealerCut && form.bufferCut && form.adventure)
+            try {
+                const result = await searchAdventure(form.adventure);
+                console.log("검색 결과:", result);
+
+                setIsSearched(true);
+            } catch (error) {
+                console.error("검색 실패:", error);
+            }
     };
 
     return (
@@ -77,6 +87,7 @@ export default function Main() {
                 babyCountHandler={babyCountHandler}
                 submitHandler={submitHandler}
             />
+
             {isSearched ? (
                 <div className="w-full">
                     <p className="text-lg mb-2">
