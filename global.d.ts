@@ -1,9 +1,9 @@
 export declare global {
-    interface FormType {
+    interface Form {
         dealerCut: string;
         bufferCut: string;
-        setCount: string;
-        babyCount: string;
+        dealerCount: string;
+        bufferCount: string;
         adventure: string;
     }
 
@@ -30,5 +30,14 @@ export declare global {
         buffScore?: string; // 버프력/2인버프력 ex)"7,323,440"
         buffScore3?: string; //  3인버프력 ex)"6,737,305"
         buffScore4?: string; //  4인버프력 ex)"6,541,927"
+    }
+
+    interface Response {
+        characters: Character[];
+    }
+
+    interface Badge {
+        type: "시민상" | "전과자";
+        count: number;
     }
 }

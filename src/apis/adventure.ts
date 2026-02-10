@@ -12,5 +12,5 @@ export const searchAdventure = async (name: string) => {
         throw new Error("API 요청 실패");
     }
 
-    return response.text();
+    return response.json();
 };

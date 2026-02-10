@@ -3,65 +3,64 @@
 import AdventureCard from "@/components/AdventureCard";
 import Menual from "@/components/Menual";
 import SearchForm from "@/components/SearchForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchAdventure } from "@/apis/adventure";
 
 export default function Main() {
     const [form, setForm] = useState({
         dealerCut: "",
         bufferCut: "",
-        setCount: "1",
-        babyCount: "0",
+        dealerCount: "3",
+        bufferCount: "1",
         adventure: "",
     });
     const [isSearched, setIsSearched] = useState(false);
+    const [adventure, setAdventure] = useState<Character[]>();
 
-    const setCountHandler = (
+    const dealerCountHandler = (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
     ) => {
         e.preventDefault();
 
-        if (!form.setCount) {
-            setForm((data) => ({ ...data, setCount: "1" }));
+        if (!form.dealerCount) {
+            setForm((data) => ({ ...data, dealerCount: "3" }));
+            return;
         }
-        if (type === "up" && +form.setCount < 8) {
+        if (type === "up" && +form.dealerCount < 99) {
             setForm((data) => ({
                 ...data,
-                setCount: (+form.setCount + 1).toString(),
+                dealerCount: (+form.dealerCount + 1).toString(),
             }));
         }
-        if (type === "down" && +form.setCount > 1) {
+        if (type === "down" && +form.dealerCount > 1) {
             setForm((data) => ({
                 ...data,
-                setCount: (+form.setCount - 1).toString(),
+                dealerCount: (+form.dealerCount - 1).toString(),
             }));
         }
     };
-    const babyCountHandler = (
+    const bufferCountHandler = (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
     ) => {
         e.preventDefault();
 
-        if (!form.babyCount) {
-            setForm((data) => ({ ...data, babyCount: "0" }));
+        if (!form.bufferCount) {
+            setForm((data) => ({ ...data, bufferCount: "1" }));
+            return;
         }
-        if (type === "up") {
-            if (form.babyCount === "0")
-                setForm((data) => ({ ...data, babyCount: "1" }));
-            if (form.babyCount === "1")
-                setForm((data) => ({ ...data, babyCount: "2" }));
-            if (form.babyCount === "2")
-                setForm((data) => ({ ...data, babyCount: "8" }));
+        if (type === "up" && +form.bufferCount < 9) {
+            setForm((data) => ({
+                ...data,
+                bufferCount: (+form.bufferCount + 1).toString(),
+            }));
         }
-        if (type === "down") {
-            if (form.babyCount === "1")
-                setForm((data) => ({ ...data, babyCount: "0" }));
-            if (form.babyCount === "2")
-                setForm((data) => ({ ...data, babyCount: "1" }));
-            if (form.babyCount === "8")
-                setForm((data) => ({ ...data, babyCount: "2" }));
+        if (type === "down" && +form.bufferCount > 1) {
+            setForm((data) => ({
+                ...data,
+                bufferCount: (+form.bufferCount - 1).toString(),
+            }));
         }
     };
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -69,32 +68,44 @@ export default function Main() {
 
         if (form.dealerCut && form.bufferCut && form.adventure)
             try {
-                const result = await searchAdventure(form.adventure);
-                console.log("검색 결과:", result);
-
+                const result: Response = await searchAdventure(form.adventure);
+                setAdventure(result.characters);
                 setIsSearched(true);
             } catch (error) {
                 console.error("검색 실패:", error);
             }
     };
 
+    useEffect(() => {
+        const setDealerCountToNull = () => {
+            setForm((data) => ({ ...data, dealerCount: "" }));
+        };
+        if (form.dealerCount === "0") setDealerCountToNull();
+    }, [form.dealerCount]);
+
     return (
         <>
             <SearchForm
                 form={form}
                 setForm={setForm}
-                setCountHandler={setCountHandler}
-                babyCountHandler={babyCountHandler}
+                dealerCountHandler={dealerCountHandler}
+                bufferCountHandler={bufferCountHandler}
                 submitHandler={submitHandler}
             />
 
-            {isSearched ? (
+            {isSearched && adventure ? (
                 <div className="w-full">
                     <p className="text-lg mb-2">
                         검색 결과 <span className="t-main">1</span>
                     </p>
                     <div className="w-full flex gap-3">
-                        <AdventureCard />
+                        <AdventureCard
+                            characters={adventure}
+                            dealerCut={+form.dealerCut}
+                            bufferCut={+form.bufferCut}
+                            dealerCount={+form.dealerCount}
+                            bufferCount={+form.bufferCount}
+                        />
                     </div>
                 </div>
             ) : (

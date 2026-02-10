@@ -2,13 +2,13 @@ import Input from "./Input";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 
 type SearchFormProps = {
-    form: FormType;
-    setForm: React.Dispatch<React.SetStateAction<FormType>>;
-    setCountHandler: (
+    form: Form;
+    setForm: React.Dispatch<React.SetStateAction<Form>>;
+    dealerCountHandler: (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
     ) => void;
-    babyCountHandler: (
+    bufferCountHandler: (
         e: React.MouseEvent<HTMLButtonElement>,
         type: "up" | "down",
     ) => void;
@@ -18,8 +18,8 @@ type SearchFormProps = {
 export default function SearchForm({
     form,
     setForm,
-    setCountHandler,
-    babyCountHandler,
+    dealerCountHandler,
+    bufferCountHandler,
     submitHandler,
 }: SearchFormProps) {
     return (
@@ -74,31 +74,34 @@ export default function SearchForm({
             <div className="flex gap-3">
                 <div className="relative">
                     <Input
-                        id="set-count"
-                        placeholder="1"
-                        value={form.setCount}
+                        id="dealer-count"
+                        placeholder="3"
+                        value={form.dealerCount}
                         onChange={(e) =>
                             setForm((data) => ({
                                 ...data,
-                                setCount: e.target.value.replace(/[^1-8]/g, ""),
+                                dealerCount: e.target.value.replace(
+                                    /[^0-9]/g,
+                                    "",
+                                ),
                             }))
                         }
-                        maxLength={1}
+                        maxLength={2}
                     >
-                        벞교 수
+                        딜러 수
                     </Input>
                     <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
-                            onClick={(e) => setCountHandler(e, "up")}
+                            onClick={(e) => dealerCountHandler(e, "up")}
                         >
                             <ChevronUp size={20} />
                         </button>
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
-                            onClick={(e) => setCountHandler(e, "down")}
+                            onClick={(e) => dealerCountHandler(e, "down")}
                         >
                             <ChevronDown size={20} />
                         </button>
@@ -106,34 +109,34 @@ export default function SearchForm({
                 </div>
                 <div className="relative">
                     <Input
-                        id="baby-count"
-                        placeholder="0"
-                        value={form.babyCount}
+                        id="buffer-count"
+                        placeholder="1"
+                        value={form.bufferCount}
                         onChange={(e) =>
                             setForm((data) => ({
                                 ...data,
-                                babyCount: e.target.value.replace(
-                                    /[^0128]/g,
+                                bufferCount: e.target.value.replace(
+                                    /[^1-9]/g,
                                     "",
                                 ),
                             }))
                         }
                         maxLength={1}
                     >
-                        업둥이 수
+                        버퍼 수
                     </Input>
                     <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
-                            onClick={(e) => babyCountHandler(e, "up")}
+                            onClick={(e) => bufferCountHandler(e, "up")}
                         >
                             <ChevronUp size={20} />
                         </button>
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
-                            onClick={(e) => babyCountHandler(e, "down")}
+                            onClick={(e) => bufferCountHandler(e, "down")}
                         >
                             <ChevronDown size={20} />
                         </button>
@@ -144,7 +147,7 @@ export default function SearchForm({
                 <Input
                     id="adventure-name"
                     placeholder="모험단 이름 입력"
-                    maxLength={50}
+                    maxLength={10}
                     value={form.adventure}
                     onChange={(e) =>
                         setForm((data) => ({
