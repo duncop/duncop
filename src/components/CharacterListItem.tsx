@@ -1,28 +1,31 @@
 import Image from "next/image";
 
 export default function CharacterListItem({
-    name,
-    job,
-    power,
-    fame,
     isBuffer,
+    character,
+    partyType,
 }: {
-    name: string;
-    job: string;
-    power: number;
-    fame: number;
     isBuffer?: boolean;
+    character: Character;
+    partyType: string;
 }) {
     return (
         <li className="w-full flex justify-between px-2">
             <div>
-                <p className="font-semibold text-xl">{name}</p>
-                <p className="text-sm text-gray600 dark:text-gray500">{job}</p>
+                <p className="font-semibold text-xl">
+                    {character.name}
+                    {character.setname === "무리 사냥의 길잡이" &&
+                        !isBuffer && (
+                            <span className="text-blue-400">&nbsp;S</span>
+                        )}
+                </p>
+                <p className="text-sm text-gray600 dark:text-gray500">
+                    {character.job}
+                </p>
             </div>
             <div>
                 <p className="font-bold text-xl  text-end">
-                    {power}
-                    {isBuffer ? "만" : "억"}
+                    {isBuffer ? `${character.ozma}만` : `${character.ozma}억`}
                 </p>
                 <p className="text-sm flex items-center gap-1 text-yellow-600 dark:text-yellow-500 text-end opacity-85">
                     <Image
@@ -31,7 +34,7 @@ export default function CharacterListItem({
                         width={16}
                         height={16}
                     />
-                    {fame}
+                    {character.fame}
                 </p>
             </div>
         </li>
