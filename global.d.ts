@@ -4,6 +4,7 @@ export declare global {
         bufferCut: string;
         dealerCount: string;
         bufferCount: string;
+        partyType: string;
         adventure: string;
     }
 

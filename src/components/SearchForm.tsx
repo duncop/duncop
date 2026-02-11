@@ -1,5 +1,6 @@
 import Input from "./Input";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
+import Select from "./Select";
 
 type SearchFormProps = {
     form: Form;
@@ -72,7 +73,7 @@ export default function SearchForm({
                 </div>
             </div>
             <div className="flex gap-3">
-                <div className="relative">
+                <div className="relative w-full">
                     <Input
                         id="dealer-count"
                         placeholder="3"
@@ -90,7 +91,7 @@ export default function SearchForm({
                     >
                         딜러 수
                     </Input>
-                    <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
+                    <div className="absolute right-1 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
@@ -107,7 +108,7 @@ export default function SearchForm({
                         </button>
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative w-full">
                     <Input
                         id="buffer-count"
                         placeholder="1"
@@ -125,7 +126,7 @@ export default function SearchForm({
                     >
                         버퍼 수
                     </Input>
-                    <div className="absolute right-2 bottom-1 flex flex-col text-gray500 dark:text-gray700">
+                    <div className="absolute right-1 bottom-1 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
@@ -142,6 +143,15 @@ export default function SearchForm({
                         </button>
                     </div>
                 </div>
+                <Select
+                    options={["4인", "3인", "2인"]}
+                    value={form.partyType}
+                    setValue={(s) => {
+                        setForm((data) => ({ ...data, partyType: s }));
+                    }}
+                >
+                    &nbsp;
+                </Select>
             </div>
             <div className="relative">
                 <Input

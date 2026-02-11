@@ -12,6 +12,7 @@ export default function Main() {
         bufferCut: "",
         dealerCount: "3",
         bufferCount: "1",
+        partyType: "4인",
         adventure: "",
     });
     const [isSearched, setIsSearched] = useState(false);
@@ -70,6 +71,7 @@ export default function Main() {
             try {
                 const result: Response = await searchAdventure(form.adventure);
                 setAdventure(result.characters);
+                console.log(result.characters);
                 setIsSearched(true);
             } catch (error) {
                 console.error("검색 실패:", error);
@@ -99,13 +101,7 @@ export default function Main() {
                         검색 결과 <span className="t-main">1</span>
                     </p>
                     <div className="w-full flex gap-3">
-                        <AdventureCard
-                            characters={adventure}
-                            dealerCut={+form.dealerCut}
-                            bufferCut={+form.bufferCut}
-                            dealerCount={+form.dealerCount}
-                            bufferCount={+form.bufferCount}
-                        />
+                        <AdventureCard characters={adventure} form={form} />
                     </div>
                 </div>
             ) : (
