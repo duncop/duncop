@@ -6,20 +6,22 @@ import { dealerFilter, bufferFilter } from "@/utils/adventure";
 export default function AdventureCard({
     badge,
     characters,
-    dealerCut,
-    bufferCut,
-    dealerCount,
-    bufferCount,
+    form,
 }: {
     badge?: Badge;
     characters: Character[];
-    dealerCut: number;
-    bufferCut: number;
-    dealerCount: number;
-    bufferCount: number;
+    form: Form;
 }) {
-    const dealer_list = dealerFilter(characters, dealerCut);
-    const buffer_list = bufferFilter(characters, bufferCut);
+    const dealer_list = dealerFilter(
+        characters,
+        +form.dealerCut,
+        form.partyType,
+    );
+    const buffer_list = bufferFilter(
+        characters,
+        +form.bufferCut,
+        form.partyType,
+    );
 
     return (
         <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
@@ -85,57 +87,21 @@ export default function AdventureCard({
                             ) : (
                                 <hr className="text-gray200 dark:text-gray800" />
                             )}
-                            <CharacterListItem
-                                name={d.name}
-                                job={d.job}
-                                power={+d.ozma}
-                                fame={+d.fame}
-                                isBuffer={false}
-                            />
+                            <CharacterListItem isBuffer={false} character={d} />
                         </div>
                     ))}
                 </ul>
                 <ul className="w-full flex flex-col gap-3">
-                    <hr className="text-white/0" />
-                    <CharacterListItem
-                        name="애기븝미"
-                        job="眞 인챈트리스"
-                        power={675}
-                        fame={80938}
-                        isBuffer={true}
-                    />
-                    <hr className="text-gray200 dark:text-gray800" />
-                    <CharacterListItem
-                        name="애기끰끰"
-                        job="眞 크루세이더"
-                        power={633}
-                        fame={78762}
-                        isBuffer={true}
-                    />
-                    <hr className="text-gray200 dark:text-gray800" />
-                    <CharacterListItem
-                        name="○ㅐ기븝미"
-                        job="眞 인챈트리스"
-                        power={632}
-                        fame={79221}
-                        isBuffer={true}
-                    />
-                    <hr className="text-gray200 dark:text-gray800" />
-                    <CharacterListItem
-                        name="Oㅐ기븝미"
-                        job="眞 인챈트리스"
-                        power={624}
-                        fame={78854}
-                        isBuffer={true}
-                    />
-                    <hr className="text-gray200 dark:text-gray800" />
-                    <CharacterListItem
-                        name="Oㅐ기뮤즈"
-                        job="眞 뮤즈"
-                        power={501}
-                        fame={75413}
-                        isBuffer={true}
-                    />
+                    {buffer_list.map((b, i) => (
+                        <div key={b.key} className="w-full flex flex-col gap-3">
+                            {i === 0 ? (
+                                <hr className="text-white/0" />
+                            ) : (
+                                <hr className="text-gray200 dark:text-gray800" />
+                            )}
+                            <CharacterListItem isBuffer={true} character={b} />
+                        </div>
+                    ))}
                 </ul>
             </div>
         </div>

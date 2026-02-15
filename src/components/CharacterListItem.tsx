@@ -3,11 +3,9 @@ import Image from "next/image";
 export default function CharacterListItem({
     isBuffer,
     character,
-    partyType,
 }: {
     isBuffer?: boolean;
     character: Character;
-    partyType: string;
 }) {
     return (
         <li className="w-full flex justify-between px-2">
@@ -25,7 +23,9 @@ export default function CharacterListItem({
             </div>
             <div>
                 <p className="font-bold text-xl  text-end">
-                    {isBuffer ? `${character.ozma}만` : `${character.ozma}억`}
+                    {isBuffer
+                        ? `${character.buffScore}만`
+                        : `${character.ozma}억`}
                 </p>
                 <p className="text-sm flex items-center gap-1 text-yellow-600 dark:text-yellow-500 text-end opacity-85">
                     <Image
