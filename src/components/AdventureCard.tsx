@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
 import Badge from "./Badge";
 import CharacterListItem from "./CharacterListItem";
 import { dealerFilter, bufferFilter } from "@/utils/adventure";
@@ -52,8 +52,21 @@ export default function AdventureCard({
                         </span>
                     </p>
                 </div>
-                <div className="w-9 h-9 flex justify-center items-center b-main rounded-full text-white dark:text-gray900">
-                    <Check strokeWidth={3} />
+                <div
+                    className={`w-9 h-9 flex justify-center items-center rounded-full text-white dark:text-gray900
+                    ${
+                        dealer_list.length >= +form.dealerCount &&
+                        buffer_list.length >= +form.bufferCount
+                            ? "b-main"
+                            : "bg-red"
+                    }`}
+                >
+                    {dealer_list.length >= +form.dealerCount &&
+                    buffer_list.length >= +form.bufferCount ? (
+                        <Check strokeWidth={3} />
+                    ) : (
+                        <X strokeWidth={3} />
+                    )}
                 </div>
             </div>
 
@@ -61,7 +74,9 @@ export default function AdventureCard({
                 <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
                     <p className="font-normal">컷 만족 딜러</p>
                     <p className="font-semibold text-xl">
-                        <span className="t-main font-bold text-3xl">
+                        <span
+                            className={`font-bold text-3xl ${dealer_list.length < +form.dealerCount ? "text-red" : "t-main"}`}
+                        >
                             {dealer_list.length}
                         </span>{" "}
                         명
@@ -70,7 +85,9 @@ export default function AdventureCard({
                 <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
                     <p className="font-normal">컷 만족 버퍼</p>
                     <p className="font-semibold text-xl">
-                        <span className="t-main font-bold text-3xl">
+                        <span
+                            className={`font-bold text-3xl ${buffer_list.length < +form.bufferCount ? "text-red" : "t-main"}`}
+                        >
                             {buffer_list.length}
                         </span>{" "}
                         명

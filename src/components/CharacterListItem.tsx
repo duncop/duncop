@@ -22,7 +22,7 @@ export default function CharacterListItem({
                 </p>
             </div>
             <div>
-                <p className="font-bold text-xl  text-end">
+                <p className="font-bold text-xl text-end">
                     {isBuffer
                         ? `${character.buffScore}만`
                         : `${character.ozma}억`}
