@@ -91,7 +91,7 @@ export default function SearchForm({
                     >
                         딜러 수
                     </Input>
-                    <div className="absolute right-1 bottom-1 flex flex-col text-gray500 dark:text-gray700">
+                    <div className="absolute right-2 bottom-1.25 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
@@ -126,7 +126,7 @@ export default function SearchForm({
                     >
                         버퍼 수
                     </Input>
-                    <div className="absolute right-1 bottom-1 flex flex-col text-gray500 dark:text-gray700">
+                    <div className="absolute right-2 bottom-1.25 flex flex-col text-gray500 dark:text-gray700">
                         <button
                             type="button"
                             className="hover:bg-gray100 dark:hover:bg-gray800 rounded-md px-1 hover:text-gray600"
@@ -144,6 +144,7 @@ export default function SearchForm({
                     </div>
                 </div>
                 <Select
+                    id="party-type"
                     options={["4인", "3인", "2인"]}
                     value={form.partyType}
                     setValue={(s) => {
