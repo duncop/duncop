@@ -3,7 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
     const nav = [
@@ -12,12 +12,20 @@ export default function Header() {
     ];
     const path = usePathname();
 
-    const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+    const [isLightTheme, setIsLightTheme] = useState<boolean>(false);
 
     const themeToggleHandler = () => {
         document.documentElement.classList.toggle("dark");
         setIsLightTheme(!isLightTheme);
     };
+
+    useEffect(() => {
+        const isDarkMode = document.documentElement.classList.contains("dark");
+        const setDefaultTheme = () => {
+            setIsLightTheme(!isDarkMode);
+        };
+        setDefaultTheme();
+    }, []);
 
     return (
         <>
