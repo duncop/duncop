@@ -3,15 +3,15 @@ import { ASK } from "@/constants/ask";
 
 export default function Ask() {
     return (
-        <div className="gap-10 flex flex-col items-center">
+        <div className="m-auto gap-10 flex flex-col items-center">
             <h2>문의하기</h2>
-            <div className="w-full p-10 flex flex-col gap-2 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+            <div className="card">
                 <h4>{ASK[0].title}</h4>
-                <p className="whitespace-pre mb-2">{ASK[0].body}</p>
+                <p className="whitespace-pre-wrap mb-2">{ASK[0].body}</p>
             </div>
-            <div className="w-full p-10 flex flex-col gap-2 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+            <div className="card">
                 <h4>{ASK[1].title}</h4>
-                <p className="whitespace-pre mb-2">{ASK[1].body}</p>
+                <p className="whitespace-pre-wrap mb-2">{ASK[1].body}</p>
             </div>
 
             <Link
