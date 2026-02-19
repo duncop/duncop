@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const pretendard = localFont({
     src: "../assets/fonts/PretendardVariable.woff2",
@@ -42,6 +43,7 @@ export default function RootLayout({
             <body
                 className={`${pretendard.variable} ${sebang_gothic.variable} font-medium antialiased dark:bg-gray1000 select-none`}
             >
+                <ScrollToTop />
                 <Header />
                 <div className="w-6xl h-full m-auto pt-30 pb-15">
                     {children}
