@@ -107,7 +107,7 @@ export default function ReportForm() {
             </div>
             <button
                 type="submit"
-                className="w-full h-12.5 font-semibold text-lg bg-main rounded-xl dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
+                className="w-full h-12.5 font-semibold text-lg b-main rounded-xl text-white dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
             >
                 신고하기
             </button>

@@ -3,7 +3,7 @@
 import { Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
     const nav = [
@@ -12,18 +12,26 @@ export default function Header() {
     ];
     const path = usePathname();
 
-    const [isLightTheme, setIsLightTheme] = useState<boolean>(true);
+    const [isLightTheme, setIsLightTheme] = useState<boolean>(false);
 
     const themeToggleHandler = () => {
         document.documentElement.classList.toggle("dark");
         setIsLightTheme(!isLightTheme);
     };
 
+    useEffect(() => {
+        const isDarkMode = document.documentElement.classList.contains("dark");
+        const setDefaultTheme = () => {
+            setIsLightTheme(!isDarkMode);
+        };
+        setDefaultTheme();
+    }, []);
+
     return (
         <>
-            <header className="fixed z-1 top-0 w-full h-15 border-b flex justify-between items-center px-[20%] text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
+            <header className="fixed z-10 top-0 w-full h-15 border-b flex justify-between items-center px-[20%] text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
                 <Link href="/" className="logo">
-                    DUN<span className="text-main">COP</span>
+                    DUN<span className="t-main">COP</span>
                 </Link>
                 <nav className="relative h-full flex">
                     {nav.map((n) => (
@@ -37,7 +45,7 @@ export default function Header() {
                         </Link>
                     ))}
                     <div
-                        className={`absolute bottom-0 w-30 h-1 bg-gray1000 dark:bg-white ${path !== "/" && "translate-x-30"}`}
+                        className={`absolute bottom-0 w-30 h-1 bg-gray1000 dark:bg-white ${path === "/" ? "" : path === "/report" ? "translate-x-30" : "opacity-0"}`}
                     />
                 </nav>
                 <button
