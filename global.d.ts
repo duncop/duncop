@@ -14,7 +14,7 @@ export declare global {
         server: string; // 서버 ex)"hilder"
         setPoint: string; // 세트포인트 ex)"2765"
         advenInae: number; // 모험단 이내 클리어 수 ex)191
-        adventureName: string; // 모험단명 ex)"앎"
+        adventrueName: string; // 모험단명 ex)"앎"
         ozma?: string; // 딜 ex)"501 억 4037 만" (없을 수도 있음)
         setname: string; // 장비세트 ex)"칠흑의 정화"
         advenDireHard: number; // 모험단 디레지에 하드 클리어 수 ex)6
