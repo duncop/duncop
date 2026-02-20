@@ -71,7 +71,6 @@ export default function Main() {
             try {
                 const result: Response = await searchAdventure(form.adventure);
                 setAdventure(result.characters);
-                console.log(result.characters);
                 setIsSearched(true);
             } catch (error) {
                 console.error("검색 실패:", error);

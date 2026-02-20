@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
         return new NextResponse(await response.text(), {
             status: 200,
             headers: {
-                "Content-Type": "text/html; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8",
             },
         });
     } catch (error) {
