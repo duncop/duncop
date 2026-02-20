@@ -29,7 +29,7 @@ export default function AdventureCard({
                 <div>
                     <div className="flex gap-2 items-center">
                         <h3 className="font-bold select-text cursor-default">
-                            {characters[0].adventrueName}
+                            {characters[0].adventureName}
                         </h3>
                         {badge?.type === "전과자" ? (
                             <Badge type="전과자" />
