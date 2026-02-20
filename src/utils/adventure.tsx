@@ -37,11 +37,11 @@ const parseOzma = (partyType: string, character: Character) => {
         if (partyType === "3인")
             ozma_num = Math.floor((ozma_num / 1.08) * 1.16);
     }
-    return ozma_num.toString().slice(0, -4);
+    return ozma_num.toString().slice(0, -4) || "0";
 };
 
 const parseBuffScore = (partyType: string, character: Character) => {
-    if (!character.buffScore) return "0";
+    if (!character.buffScore) return "-1";
 
     let buffScore = character.buffScore;
 
