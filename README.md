@@ -28,13 +28,14 @@
 
 ### 🛠 기술 스택
 
-| 항목              | 사용 기술                                                                                                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Framework         | ![Next](https://img.shields.io/badge/Next-20232a?style=flat&logo=next.js&logoColor=ffffff) + ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)                    |
-| Language          | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)                                                                                               |
-| Database          | ![Supabase](https://img.shields.io/badge/Supabase-3ecf8e?style=flat&logo=supabase&logoColor=white)                                                                                                     |
-| Style             | ![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwind-css&logoColor=white) ![Lucide](https://img.shields.io/badge/Lucide-f56565?style=flat&logo=lucide&logoColor=white) |
-| Deploy & Analysis | ![Vercel](https://img.shields.io/badge/Vercel-20232a?style=flat&logo=vercel&logoColor=white)                                                                                                           |
+| 항목      | 사용 기술                                                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Framework | ![Next](https://img.shields.io/badge/Next-20232a?style=flat&logo=next.js&logoColor=ffffff) + ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)                    |
+| Language  | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)                                                                                               |
+| Database  | ![Supabase](https://img.shields.io/badge/Supabase-3ecf8e?style=flat&logo=supabase&logoColor=white)                                                                                                     |
+| Style     | ![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwind-css&logoColor=white) ![Lucide](https://img.shields.io/badge/Lucide-f56565?style=flat&logo=lucide&logoColor=white) |
+| Deploy    | ![Vercel](https://img.shields.io/badge/Vercel-20232a?style=flat&logo=vercel&logoColor=white)                                                                                                           |
+| Analysis  | ![Google Analytics](https://img.shields.io/badge/Google_Analytics-e37808?style=flat&logo=google-analytics&logoColor=white)                                                                             |
 
 <br/>
 
