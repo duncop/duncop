@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ToastProvider from "@/components/ToastProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const pretendard = localFont({
     src: "../assets/fonts/PretendardVariable.woff2",
@@ -46,6 +47,7 @@ export default function RootLayout({
             >
                 <ScrollToTop />
                 <ToastProvider />
+                <Analytics />
                 <Header />
                 <div className="w-6xl h-full m-auto pt-30 pb-15">
                     {children}
