@@ -6,7 +6,7 @@ export default function ToastProvider() {
     return (
         <ToastContainer
             position="bottom-center"
-            autoClose={1500}
+            autoClose={2000}
             closeButton={false}
             pauseOnHover={false}
             limit={1}
