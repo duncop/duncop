@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="w-full h-15 pr-20 border-t flex gap-5 items-center justify-end border-gray300 dark:border-gray900">
+        <footer className="w-full min-w-6xl h-15 pr-20 border-t flex gap-5 items-center justify-end border-gray300 dark:border-gray900">
             <Link
                 href="/ask"
                 className="p-3  text-gray700 hover:text-gray900 dark:text-gray500 dark:hover:text-gray300"

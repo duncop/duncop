@@ -53,7 +53,7 @@ export default function RootLayout({
                 <ScrollToTop />
                 <ToastProvider />
                 <Header />
-                <div className="w-6xl h-full m-auto pt-30 pb-15">
+                <div className="w-6xl h-full m-auto pt-30 pb-15 px-5">
                     {children}
                 </div>
                 <Footer />
