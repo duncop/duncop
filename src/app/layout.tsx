@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/next";
 
 const pretendard = localFont({
     src: "../assets/fonts/PretendardVariable.woff2",
@@ -49,6 +50,7 @@ export default function RootLayout({
                     {children}
                 </div>
                 <Footer />
+                <Analytics />
             </body>
         </html>
     );
