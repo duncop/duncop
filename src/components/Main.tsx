@@ -1,10 +1,11 @@
 "use client";
 
-import AdventureCard from "@/components/AdventureCard";
-import Menual from "@/components/Menual";
-import SearchForm from "@/components/SearchForm";
+import AdventureCard from "./AdventureCard";
+import Menual from "./Menual";
+import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
 import { searchAdventure } from "@/apis/adventure";
+import { toast } from "react-toastify";
 
 export default function Main() {
     const [form, setForm] = useState({
@@ -17,6 +18,7 @@ export default function Main() {
     });
     const [isSearched, setIsSearched] = useState(false);
     const [adventure, setAdventure] = useState<Character[]>();
+    const [adventureName, setAdventureName] = useState<string>("");
 
     const dealerCountHandler = (
         e: React.MouseEvent<HTMLButtonElement>,
@@ -67,14 +69,33 @@ export default function Main() {
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (form.dealerCut && form.bufferCut && form.adventure)
-            try {
-                const result: Response = await searchAdventure(form.adventure);
-                setAdventure(result.characters);
-                setIsSearched(true);
-            } catch (error) {
-                console.error("검색 실패:", error);
-            }
+        if (!form.dealerCut) {
+            toast.error("딜러컷을 입력해주세요.");
+            return;
+        }
+        if (!form.bufferCut) {
+            toast.error("버퍼컷을 입력해주세요.");
+            return;
+        }
+        if (!form.adventure) {
+            toast.error("모험단을 입력해주세요.");
+            return;
+        }
+        if (!form.dealerCount || !form.bufferCount)
+            setForm((data) => ({
+                ...data,
+                dealerCount: data.dealerCount || "3",
+                bufferCount: data.bufferCount || "1",
+            }));
+
+        try {
+            const result = await searchAdventure(form.adventure);
+            setAdventure(result.characters);
+            setAdventureName(form.adventure);
+            setIsSearched(true);
+        } catch (error) {
+            console.error("검색 실패:", error);
+        }
     };
 
     useEffect(() => {
@@ -100,7 +121,11 @@ export default function Main() {
                         검색 결과 <span className="t-main">1</span>
                     </p>
                     <div className="w-full flex gap-3">
-                        <AdventureCard characters={adventure} form={form} />
+                        <AdventureCard
+                            characters={adventure}
+                            form={form}
+                            adventureName={adventureName}
+                        />
                     </div>
                 </div>
             ) : (
