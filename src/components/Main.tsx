@@ -18,6 +18,7 @@ export default function Main() {
     });
     const [isSearched, setIsSearched] = useState(false);
     const [adventure, setAdventure] = useState<Character[]>();
+    const [adventureName, setAdventureName] = useState<string>("");
 
     const dealerCountHandler = (
         e: React.MouseEvent<HTMLButtonElement>,
@@ -80,10 +81,15 @@ export default function Main() {
             toast.error("모험단을 입력해주세요.");
             return;
         }
+        if (!form.dealerCount)
+            setForm((data) => ({ ...data, dealerCount: "3" }));
+        if (!form.bufferCount)
+            setForm((data) => ({ ...data, bufferCount: "1" }));
 
         try {
             const result: Response = await searchAdventure(form.adventure);
             setAdventure(result.characters);
+            setAdventureName(form.adventure);
             setIsSearched(true);
         } catch (error) {
             console.error("검색 실패:", error);
@@ -113,7 +119,11 @@ export default function Main() {
                         검색 결과 <span className="t-main">1</span>
                     </p>
                     <div className="w-full flex gap-3">
-                        <AdventureCard characters={adventure} form={form} />
+                        <AdventureCard
+                            characters={adventure}
+                            form={form}
+                            adventureName={adventureName}
+                        />
                     </div>
                 </div>
             ) : (

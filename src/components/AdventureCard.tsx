@@ -7,10 +7,12 @@ export default function AdventureCard({
     badge,
     characters,
     form,
+    adventureName,
 }: {
     badge?: Badge;
-    characters: Character[];
+    characters: Character[] | [];
     form: Form;
+    adventureName: string;
 }) {
     const dealer_list = dealerFilter(
         characters,
@@ -23,13 +25,64 @@ export default function AdventureCard({
         form.partyType,
     );
 
+    if (!characters.length) {
+        return (
+            <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div className="w-full flex justify-between">
+                    <div>
+                        <div className="flex gap-2 items-center">
+                            <h3 className="font-bold select-text cursor-default">
+                                {adventureName}
+                            </h3>
+                            {badge?.type === "전과자" ? (
+                                <Badge type="전과자" />
+                            ) : (
+                                badge?.type === "시민상" && (
+                                    <Badge type="시민상" />
+                                )
+                            )}
+                        </div>
+                        <p className="text-sm text-gray600 dark:text-gray500">
+                            이내&nbsp;
+                            <span className="t-main">?</span>
+                            &nbsp;&nbsp;디레지에&nbsp;
+                            <span className="t-main">?</span>
+                            &nbsp;&nbsp;악연&nbsp;
+                            <span className="t-main">?</span>
+                        </p>
+                    </div>
+                    <div className="w-9 h-9 flex justify-center items-center rounded-full bg-yellow-400 dark:bg-yellow-300 text-white dark:text-gray900 text-2xl font-semibold">
+                        ?
+                    </div>
+                </div>
+
+                <div className="w-full flex gap-3">
+                    <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
+                        <p className="font-normal">컷 만족 딜러</p>
+                        <p className="font-semibold text-xl">
+                            <span className="font-bold text-3xl t-main">?</span>{" "}
+                            명
+                        </p>
+                    </div>
+                    <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
+                        <p className="font-normal">컷 만족 버퍼</p>
+                        <p className="font-semibold text-xl">
+                            <span className="font-bold text-3xl t-main">?</span>{" "}
+                            명
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
             <div className="w-full flex justify-between">
                 <div>
                     <div className="flex gap-2 items-center">
                         <h3 className="font-bold select-text cursor-default">
-                            {characters[0].adventrueName}
+                            {adventureName}
                         </h3>
                         {badge?.type === "전과자" ? (
                             <Badge type="전과자" />
