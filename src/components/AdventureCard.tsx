@@ -10,21 +10,10 @@ export default function AdventureCard({
     adventureName,
 }: {
     badge?: Badge;
-    characters: Character[] | [];
+    characters: Character[];
     form: Form;
     adventureName: string;
 }) {
-    const dealer_list = dealerFilter(
-        characters,
-        +form.dealerCut,
-        form.partyType,
-    );
-    const buffer_list = bufferFilter(
-        characters,
-        +form.bufferCut,
-        form.partyType,
-    );
-
     if (!characters.length) {
         return (
             <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
@@ -75,6 +64,17 @@ export default function AdventureCard({
             </div>
         );
     }
+
+    const dealer_list = dealerFilter(
+        characters,
+        +form.dealerCut,
+        form.partyType,
+    );
+    const buffer_list = bufferFilter(
+        characters,
+        +form.bufferCut,
+        form.partyType,
+    );
 
     return (
         <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">

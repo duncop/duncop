@@ -33,10 +33,6 @@ export declare global {
         buffScore4?: string; //  4인버프력 ex)"6,541,927"
     }
 
-    interface Response {
-        characters: Character[];
-    }
-
     interface Badge {
         type: "시민상" | "전과자";
         count: number;

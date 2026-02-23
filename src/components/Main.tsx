@@ -81,13 +81,15 @@ export default function Main() {
             toast.error("모험단을 입력해주세요.");
             return;
         }
-        if (!form.dealerCount)
-            setForm((data) => ({ ...data, dealerCount: "3" }));
-        if (!form.bufferCount)
-            setForm((data) => ({ ...data, bufferCount: "1" }));
+        if (!form.dealerCount || !form.bufferCount)
+            setForm((data) => ({
+                ...data,
+                dealerCount: data.dealerCount || "3",
+                bufferCount: data.bufferCount || "1",
+            }));
 
         try {
-            const result: Response = await searchAdventure(form.adventure);
+            const result = await searchAdventure(form.adventure);
             setAdventure(result.characters);
             setAdventureName(form.adventure);
             setIsSearched(true);
