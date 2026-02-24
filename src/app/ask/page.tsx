@@ -1,10 +1,23 @@
 import Link from "next/link";
-import { ASK } from "@/constants/ask";
+import { ASK, FAQ } from "@/constants/ask";
 
 export default function Ask() {
     return (
         <div className="m-auto gap-10 flex flex-col items-center">
             <h2>문의하기</h2>
+            <div className="card">
+                <h4>자주 묻는 질문</h4>
+                <p className="font-semibold">
+                    <span className="t-main">Q. </span>
+                    {FAQ[0].title}
+                </p>
+                <p className="whitespace-pre-wrap mb-2">{FAQ[0].body}</p>
+                <p className="font-semibold">
+                    <span className="t-main">Q. </span>
+                    {FAQ[1].title}
+                </p>
+                <p className="whitespace-pre-wrap mb-2">{FAQ[1].body}</p>
+            </div>
             <div className="card">
                 <h4>{ASK[0].title}</h4>
                 <p className="whitespace-pre-wrap mb-2">{ASK[0].body}</p>

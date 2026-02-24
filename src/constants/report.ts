@@ -9,7 +9,12 @@ export const SERVER_LIST = [
     "바칼",
 ];
 
-export const TYPE_LIST = ["컷 미달 잠입", "업둥 먹튀", "기타"];
+export const TYPE_LIST = [
+    "컷 미달 잠입",
+    "먹튀",
+    "진행방해 또는 고의추방",
+    "기타",
+];
 
 export const VERIFICATION = [
     {
