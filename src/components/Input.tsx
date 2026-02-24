@@ -13,7 +13,7 @@ export default function Input({
     ...props
 }: InputProps) {
     return (
-        <div className="relative flex flex-col gap-1">
+        <div className="relative w-full flex flex-col gap-1">
             <label htmlFor={id}>{children}</label>
             <input
                 id={id}

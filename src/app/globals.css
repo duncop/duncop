@@ -32,6 +32,11 @@
 
 :root {
     --text-color: var(--color-gray1000);
+    --toastify-color-error: var(--color-red);
+    --toastify-color-success: var(--color-main);
+}
+.dark:root {
+    --toastify-color-success: var(--color-main-dark);
 }
 .dark {
     --text-color: white;

@@ -8,6 +8,22 @@ export declare global {
         adventure: string;
     }
 
+    interface Person {
+        server: string;
+        character: string;
+        adventure: string;
+    }
+
+    interface ReportForm {
+        reporter: Person;
+        reportee: Person;
+        contents: {
+            type: string;
+            detail: string;
+            image: File | null;
+        };
+    }
+
     interface Character {
         baseJob: string; // 직업군 ex)"마법사(여)"
         switching?: string; // 버프강화 ex)"10Lv 12"

@@ -143,16 +143,18 @@ export default function SearchForm({
                         </button>
                     </div>
                 </div>
-                <Select
-                    id="party-type"
-                    options={["4인", "3인", "2인"]}
-                    value={form.partyType}
-                    setValue={(s) => {
-                        setForm((data) => ({ ...data, partyType: s }));
-                    }}
-                >
-                    &nbsp;
-                </Select>
+                <div className="w-50">
+                    <Select
+                        id="party-type"
+                        options={["4인", "3인", "2인"]}
+                        value={form.partyType}
+                        setValue={(s) => {
+                            setForm((data) => ({ ...data, partyType: s }));
+                        }}
+                    >
+                        &nbsp;
+                    </Select>
+                </div>
             </div>
             <div className="relative">
                 <Input

@@ -9,27 +9,29 @@ export default function Select({
     options,
     value,
     setValue,
+    placeholder,
 }: {
     id: string;
     children?: React.ReactNode;
     options: string[];
     value: string;
     setValue: (select: string) => void;
+    placeholder?: string;
 }) {
     const [isFocused, setIsFocused] = useState(false);
 
     return (
-        <div className="relative w-50 flex flex-col gap-1">
+        <div className="relative w-full flex flex-col gap-1">
             <label htmlFor={id}>{children}</label>
             <button
                 id={id}
                 type="button"
                 className={`dark:border-gray700 h-12.5 flex justify-between items-center border border-gray-300 pl-4 pr-2 focus:outline-none transition-colors
-                    ${isFocused ? "rounded-t-xl" : "rounded-xl"}`}
+                    ${isFocused ? "rounded-t-xl" : "rounded-xl"} ${!value && placeholder && "text-gray500 dark:text-gray700"}`}
                 onClick={() => setIsFocused(!isFocused)}
                 value={value}
             >
-                {value}
+                {value || placeholder}
                 <ChevronDown
                     size={20}
                     className="text-gray500 dark:text-gray700"
