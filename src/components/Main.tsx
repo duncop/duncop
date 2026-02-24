@@ -4,7 +4,7 @@ import AdventureCard from "./AdventureCard";
 import Menual from "./Menual";
 import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
-import { searchAdventure } from "@/apis/adventure";
+import { searchAdventure, getAdventureBadge } from "@/apis/adventure";
 import { toast } from "react-toastify";
 
 export default function Main() {
@@ -16,8 +16,9 @@ export default function Main() {
         partyType: "4인",
         adventure: "",
     });
-    const [isSearched, setIsSearched] = useState(false);
+    const [isSearched, setIsSearched] = useState<boolean>(false);
     const [adventure, setAdventure] = useState<Character[]>();
+    const [adventureBadge, setAdventureBadge] = useState<Badge>();
     const [adventureName, setAdventureName] = useState<string>("");
 
     const dealerCountHandler = (
@@ -88,14 +89,12 @@ export default function Main() {
                 bufferCount: data.bufferCount || "1",
             }));
 
-        try {
-            const result = await searchAdventure(form.adventure);
-            setAdventure(result.characters);
-            setAdventureName(form.adventure);
-            setIsSearched(true);
-        } catch (error) {
-            console.error("검색 실패:", error);
-        }
+        const adventureResult = await searchAdventure(form.adventure);
+        const adventureBadgeResult = await getAdventureBadge(form.adventure);
+        setAdventure(adventureResult.characters);
+        setAdventureBadge(adventureBadgeResult);
+        setAdventureName(form.adventure);
+        setIsSearched(true);
     };
 
     useEffect(() => {
@@ -125,6 +124,7 @@ export default function Main() {
                             characters={adventure}
                             form={form}
                             adventureName={adventureName}
+                            adventureBadge={adventureBadge!}
                         />
                     </div>
                 </div>

@@ -4,12 +4,12 @@ import CharacterListItem from "./CharacterListItem";
 import { dealerFilter, bufferFilter } from "@/utils/adventure";
 
 export default function AdventureCard({
-    badge,
+    adventureBadge,
     characters,
     form,
     adventureName,
 }: {
-    badge?: Badge;
+    adventureBadge: Badge;
     characters: Character[];
     form: Form;
     adventureName: string;
@@ -19,16 +19,14 @@ export default function AdventureCard({
             <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
                 <div className="w-full flex justify-between">
                     <div>
-                        <div className="flex gap-2 items-center">
+                        <div className="flex gap-3 items-center">
                             <h3 className="font-bold select-text cursor-default">
                                 {adventureName}
                             </h3>
-                            {badge?.type === "전과자" ? (
+                            {adventureBadge.criminal ? (
                                 <Badge type="전과자" />
                             ) : (
-                                badge?.type === "시민상" && (
-                                    <Badge type="시민상" />
-                                )
+                                adventureBadge.award && <Badge type="시민상" />
                             )}
                         </div>
                         <p className="text-sm text-gray600 dark:text-gray500">
@@ -80,14 +78,14 @@ export default function AdventureCard({
         <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
             <div className="w-full flex justify-between">
                 <div>
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-3 items-center">
                         <h3 className="font-bold select-text cursor-default">
                             {adventureName}
                         </h3>
-                        {badge?.type === "전과자" ? (
+                        {adventureBadge.criminal ? (
                             <Badge type="전과자" />
                         ) : (
-                            badge?.type === "시민상" && <Badge type="시민상" />
+                            adventureBadge.award && <Badge type="시민상" />
                         )}
                     </div>
                     <p className="text-sm text-gray600 dark:text-gray500">

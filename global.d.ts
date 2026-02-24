@@ -50,7 +50,7 @@ export declare global {
     }
 
     interface Badge {
-        type: "시민상" | "전과자";
-        count: number;
+        award: boolean;
+        criminal: boolean;
     }
 }

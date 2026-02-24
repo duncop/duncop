@@ -1,3 +1,5 @@
+import { supabase } from "@/utils/supabase";
+
 /* 던담 모험단 검색 */
 export const searchAdventure = async (name: string) => {
     const response = await fetch(`/api/adventure`, {
@@ -13,4 +15,22 @@ export const searchAdventure = async (name: string) => {
     }
 
     return response.json();
+};
+
+export const getAdventureBadge = async (adventureName: string) => {
+    const { data, error } = await supabase
+        .from("Adventure")
+        .select("award, criminal")
+        .eq("adventure_name", adventureName)
+        .maybeSingle();
+
+    console.log(data);
+
+    if (error || !data) {
+        return { award: false, criminal: false } as const;
+    }
+    return {
+        award: data.award,
+        criminal: data.criminal,
+    };
 };
