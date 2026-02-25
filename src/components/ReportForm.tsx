@@ -91,17 +91,14 @@ export default function ReportForm() {
     return (
         <>
             <form
-                className="w-xl flex flex-col gap-10"
+                className="w-full max-w-xl flex flex-col gap-5 sm:gap-10"
                 onSubmit={(e) => submitHandler(e)}
             >
                 <div className="flex flex-col gap-2">
                     <label htmlFor="reporter" className="font-semibold text-lg">
                         신고자
                     </label>
-                    <div
-                        id="reporter"
-                        className="p-10 flex flex-col gap-5 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
-                    >
+                    <div id="reporter" className="card">
                         <div className="flex gap-3">
                             <Select
                                 id="reporter-server"

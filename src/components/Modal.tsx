@@ -22,7 +22,7 @@ export default function Modal({
 
     return (
         <div
-            className={`fixed top-0 w-full h-screen z-100 duration-300 ${
+            className={`fixed top-0 w-full h-screen z-100 duration-300 p ${
                 isOpen
                     ? "bg-black/50 backdrop-blur-xs"
                     : "bg-clear pointer-events-none"
@@ -30,7 +30,7 @@ export default function Modal({
             onClick={onClose}
         >
             <div
-                className={`z-10 fixed top-1/2 w-2xl min-h-50 m-auto flex flex-col gap-5 inset-x-0 translate-y-[-50%] border bg-white dark:bg-gray1000 border-gray200 dark:border-gray900 shadow-lg rounded-2xl p-10 duration-300 ease-in-out
+                className={`z-10 w-[calc(100%-40px)] fixed top-1/2 max-w-xl sm:max-w-2xl min-h-50 m-auto card flex flex-col gap-5 inset-x-0 translate-y-[-50%] border bg-white dark:bg-gray1000 border-gray200 dark:border-gray900 shadow-lg rounded-2xl duration-300 ease-in-out
                         ${
                             isOpen
                                 ? "opacity-100"
@@ -42,7 +42,7 @@ export default function Modal({
                     <div key={v.id}>
                         <div className="flex gap-2 items-center">
                             <Check className="t-main mb-1" />
-                            <h4 className="mb-1">{v.title}</h4>
+                            <h4 className="h4 mb-1">{v.title}</h4>
                         </div>
                         <p className="whitespace-pre-wrap">{v.body}</p>
                     </div>

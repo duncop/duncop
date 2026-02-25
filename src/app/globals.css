@@ -52,12 +52,6 @@ body {
 button {
     cursor: pointer;
 }
-h4 {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-}
 
 .logo {
     font-family: var(--font-sebang-gothic), sans-serif;
@@ -81,6 +75,9 @@ h4 {
     }
     .h3 {
         @apply text-2xl sm:text-3xl font-bold select-text cursor-default;
+    }
+    .h4 {
+        @apply text-lg sm:text-xl font-semibold;
     }
     .p {
         @apply text-sm sm:text-base;
