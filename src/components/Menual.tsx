@@ -3,7 +3,7 @@ import Badge from "./Badge";
 
 export default function Menual() {
     return (
-        <div className="card">
+        <div className="card p">
             <h4 className="h4">{HELP[0].title}</h4>
             <p className="whitespace-pre-wrap mb-2">{HELP[0].body}</p>
             {BADGE.map((b) => (

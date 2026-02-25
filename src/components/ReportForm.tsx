@@ -98,7 +98,7 @@ export default function ReportForm() {
                     <label htmlFor="reporter" className="font-semibold text-lg">
                         신고자
                     </label>
-                    <div id="reporter" className="card">
+                    <div id="reporter" className="card p">
                         <div className="flex gap-3">
                             <Select
                                 id="reporter-server"
@@ -155,10 +155,7 @@ export default function ReportForm() {
                     <label htmlFor="reportee" className="font-semibold text-lg">
                         대상자<span className="text-red"> (필수)</span>
                     </label>
-                    <div
-                        id="reportee"
-                        className="p-10 flex flex-col gap-5 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
-                    >
+                    <div id="reportee" className="card p">
                         <div className="flex gap-3">
                             <Select
                                 id="reportee-server"
@@ -215,10 +212,7 @@ export default function ReportForm() {
                     <label htmlFor="contents" className="font-semibold text-lg">
                         내용<span className="text-red"> (필수)</span>
                     </label>
-                    <div
-                        id="contents"
-                        className="p-10 flex flex-col gap-5 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
-                    >
+                    <div id="contents" className="card p">
                         <Select
                             id="contents-type"
                             options={TYPE_LIST}
@@ -269,7 +263,7 @@ export default function ReportForm() {
                 </div>
                 <button
                     type="submit"
-                    className="w-full h-12.5 font-semibold text-lg b-main rounded-xl text-white dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
+                    className="w-full h-12.5 font-semibold text-base sm:text-lg b-main rounded-xl text-white dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
                 >
                     신고하기
                 </button>

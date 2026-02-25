@@ -24,7 +24,7 @@ export default function SearchForm({
     submitHandler,
 }: SearchFormProps) {
     return (
-        <form className="card max-w-xl" onSubmit={(e) => submitHandler(e)}>
+        <form className="card p max-w-xl" onSubmit={(e) => submitHandler(e)}>
             <div className="flex gap-3">
                 <div className="relative">
                     <Input

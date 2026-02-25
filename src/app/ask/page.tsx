@@ -29,7 +29,7 @@ export default function Ask() {
 
             <Link
                 href="https://pf.kakao.com/_ExknRX/chat"
-                className="w-full h-12.5 font-semibold flex items-center justify-center text-lg b-main rounded-xl text-white dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
+                className="w-full h-12.5 font-semibold flex items-center justify-center text-base sm:text-lg b-main rounded-xl text-white dark:text-gray1000 hover:bg-hover-green dark:hover:bg-hover-green-dark"
             >
                 카카오톡 채팅방 연결
             </Link>

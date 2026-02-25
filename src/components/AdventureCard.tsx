@@ -16,7 +16,7 @@ export default function AdventureCard({
 }) {
     if (!characters.length) {
         return (
-            <div className="card">
+            <div className="card p">
                 <div className="w-full flex justify-between">
                     <div className="flex flex-wrap gap-2 gap-y-0 mr-2">
                         <h3 className="h3 whitespace-nowrap">
@@ -73,7 +73,7 @@ export default function AdventureCard({
     );
 
     return (
-        <div className="card">
+        <div className="card p">
             <div className="w-full flex justify-between">
                 <div className="flex flex-wrap gap-2 gap-y-0 mr-2">
                     <h3 className="h3 whitespace-nowrap">{adventureName}</h3>
