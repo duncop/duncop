@@ -17,6 +17,7 @@ export const searchAdventure = async (name: string) => {
     return response.json();
 };
 
+/* 모험단 뱃지 조회 */
 export const getAdventureBadge = async (adventureName: string) => {
     const { data, error } = await supabase
         .from("Adventure")

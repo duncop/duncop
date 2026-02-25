@@ -11,7 +11,7 @@ export const SERVER_LIST = [
 
 export const TYPE_LIST = [
     "컷 미달 잠입",
-    "먹튀",
+    "먹튀 / 잠수",
     "진행방해 또는 고의추방",
     "기타",
 ];

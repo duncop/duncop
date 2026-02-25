@@ -6,6 +6,7 @@ import Select from "./Select";
 import { SERVER_LIST, TYPE_LIST } from "@/constants/report";
 import { toast } from "react-toastify";
 import Modal from "./Modal";
+import { reportUser } from "@/apis/report";
 
 export default function ReportForm() {
     const [reportForm, setReportForm] = useState<ReportForm>({
@@ -59,9 +60,32 @@ export default function ReportForm() {
 
     const submitHandler2 = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        try {
+            await reportUser(reportForm);
 
-        toast.success("신고가 접수되었습니다.");
-        setIsModalOpen(false);
+            toast.success("신고가 접수되었습니다.");
+            setReportForm({
+                reporter: {
+                    server: "",
+                    character: "",
+                    adventure: "",
+                },
+                reportee: {
+                    server: "",
+                    character: "",
+                    adventure: "",
+                },
+                contents: {
+                    type: "",
+                    detail: "",
+                    image: null,
+                },
+            });
+            setIsModalOpen(false);
+        } catch {
+            toast.error("문제가 발생했습니다.");
+            setIsModalOpen(false);
+        }
     };
 
     return (
