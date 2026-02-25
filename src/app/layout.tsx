@@ -17,9 +17,23 @@ const sebang_gothic = localFont({
     variable: "--font-sebang-gothic",
 });
 
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+};
+
 export const metadata: Metadata = {
     title: "DUNCOP",
-    description: "던담 기반 벞교 컷 확인 서비스",
+    description: "DUNCOP(던캅)은 DUNDAM 기반 벞교 컷 확인 서비스입니다.",
+    keywords: "DUNCOP, 던캅, 던파, 던전앤파이터, DNF, 벞교, 법교, 버프교환",
+    openGraph: {
+        siteName: "DUNCOP",
+        images: {
+            url: "/og-image.png",
+        },
+        description: "DUNDAM 기반 벞교 컷 확인 서비스",
+        type: "website",
+    },
 };
 
 export default function RootLayout({
