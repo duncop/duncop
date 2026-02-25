@@ -10,12 +10,9 @@ export default function Badge({ type }: { type: string }) {
             }`}
         >
             {type === "시민상" ? (
-                <>
-                    <CircleStar size={20} className="hidden sm:block" />
-                    <CircleStar size={16} className="sm:hidden" />
-                </>
+                <CircleStar className="h-4 w-4 sm:h-5 sm:w-5" />
             ) : (
-                <TriangleAlert size={20} />
+                <TriangleAlert className="h-4 w-4 sm:h-5 sm:w-5" />
             )}
             {type}
         </div>

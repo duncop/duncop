@@ -94,26 +94,12 @@ export default function AdventureCard({
                 >
                     {dealer_list.length >= +form.dealerCount &&
                     buffer_list.length >= +form.bufferCount ? (
-                        <>
-                            <Check
-                                strokeWidth={3}
-                                className="hidden sm:block"
-                            />
-                            <Check
-                                strokeWidth={3}
-                                size={20}
-                                className="sm:hidden"
-                            />
-                        </>
+                        <Check
+                            strokeWidth={3}
+                            className="h-5 w-5 sm:h-6 sm:w-6"
+                        />
                     ) : (
-                        <>
-                            <X strokeWidth={3} className="hidden sm:block" />
-                            <X
-                                strokeWidth={3}
-                                size={20}
-                                className="sm:hidden"
-                            />
-                        </>
+                        <X strokeWidth={3} className="h-5 w-5 sm:h-6 sm:w-6" />
                     )}
                 </div>
             </div>
