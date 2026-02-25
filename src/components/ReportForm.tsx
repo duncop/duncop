@@ -83,7 +83,7 @@ export default function ReportForm() {
             });
             setIsModalOpen(false);
         } catch {
-            toast.error("문제가 발생했습니다.");
+            toast.error("오류가 발생했습니다.");
             setIsModalOpen(false);
         }
     };
@@ -257,7 +257,7 @@ export default function ReportForm() {
                             id="contents-image"
                             type="file"
                             placeholder={reportForm.contents.image?.name}
-                            accept="image/*"
+                            accept="image/png, image/jpeg, image/gif, image/webp, .jpg, .jpeg, .png, .gif, .webp"
                             onChange={(e) => {
                                 const file = e.target.files?.[0] ?? null;
                                 setReportForm((data) => ({

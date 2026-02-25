@@ -89,12 +89,20 @@ export default function Main() {
                 bufferCount: data.bufferCount || "1",
             }));
 
-        const adventureResult = await searchAdventure(form.adventure);
-        const adventureBadgeResult = await getAdventureBadge(form.adventure);
-        setAdventure(adventureResult.characters);
-        setAdventureBadge(adventureBadgeResult);
-        setAdventureName(form.adventure);
-        setIsSearched(true);
+        try {
+            const adventureResult = await searchAdventure(form.adventure);
+            const adventureBadgeResult = await getAdventureBadge(
+                form.adventure,
+            );
+
+            setAdventure(adventureResult.characters);
+            setAdventureBadge(adventureBadgeResult);
+            setAdventureName(form.adventure);
+            setIsSearched(true);
+        } catch (error) {
+            console.error("검색 중 오류가 발생했습니다:", error);
+            toast.error("오류가 발생했습니다.");
+        }
     };
 
     useEffect(() => {

@@ -25,8 +25,6 @@ export const getAdventureBadge = async (adventureName: string) => {
         .eq("adventure_name", adventureName)
         .maybeSingle();
 
-    console.log(data);
-
     if (error || !data) {
         return { award: false, criminal: false } as const;
     }
