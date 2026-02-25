@@ -123,7 +123,7 @@ export default function Main() {
             />
 
             {isSearched && adventure ? (
-                <div className="w-full max-w-6xl">
+                <div className="w-full">
                     <p className="sm:text-lg mb-2">
                         검색 결과 <span className="t-main">1</span>
                     </p>

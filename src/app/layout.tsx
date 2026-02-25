@@ -62,7 +62,7 @@ export default function RootLayout({
                 <ScrollToTop />
                 <ToastProvider />
                 <Header />
-                <div className="min-h-[calc(100vh-52px)] pt-25 sm:pt-30 pb-10 sm:pb-15 px-5">
+                <div className="min-h-[calc(100vh-52px)] max-w-6xl m-auto pt-25 sm:pt-30 pb-10 sm:pb-15 px-5">
                     {children}
                 </div>
                 <Footer />
