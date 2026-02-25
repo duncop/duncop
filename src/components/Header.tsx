@@ -29,8 +29,8 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed z-10 w-full top-0 px-5 h-13 sm:h-15 border-b text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
-                <div className="h-full w-full max-w-6xl flex justify-between items-center m-auto">
+            <header className="fixed z-10 w-full top-0 h-13 sm:h-15 border-b text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
+                <div className="h-full w-full max-w-6xl px-5 flex justify-between items-center m-auto">
                     <Link href="/" className="logo text-sm sm:text-base">
                         DUN<span className="t-main">COP</span>
                     </Link>

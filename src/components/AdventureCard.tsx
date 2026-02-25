@@ -42,14 +42,14 @@ export default function AdventureCard({
                 </p>
 
                 <div className="w-full flex gap-3">
-                    <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
+                    <div className="w-full bg-gray100 dark:bg-gray800 px-4 py-3 sm:p-5 rounded-xl">
                         <p className="font-normal">컷 만족 딜러</p>
                         <p className="font-semibold text-xl">
                             <span className="font-bold text-3xl t-main">?</span>{" "}
                             명
                         </p>
                     </div>
-                    <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
+                    <div className="w-full bg-gray100 dark:bg-gray800 px-4 py-3 sm:p-5 rounded-xl">
                         <p className="font-normal">컷 만족 버퍼</p>
                         <p className="font-semibold text-xl">
                             <span className="font-bold text-3xl t-main">?</span>{" "}
@@ -127,7 +127,7 @@ export default function AdventureCard({
             </p>
 
             <div className="w-full flex gap-3">
-                <div className="w-full bg-gray100 dark:bg-gray800 p-3 sm:p-5 rounded-xl">
+                <div className="w-full bg-gray100 dark:bg-gray800 px-4 py-3 sm:p-5 rounded-xl">
                     <p className="font-normal text-sm sm:text-base">
                         컷 만족 딜러
                     </p>
@@ -140,7 +140,7 @@ export default function AdventureCard({
                         명
                     </p>
                 </div>
-                <div className="w-full bg-gray100 dark:bg-gray800 p-3 sm:p-5 rounded-xl">
+                <div className="w-full bg-gray100 dark:bg-gray800 px-4 py-3 sm:p-5 rounded-xl">
                     <p className="font-normal text-sm sm:text-base">
                         컷 만족 버퍼
                     </p>
