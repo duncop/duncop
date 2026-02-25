@@ -29,31 +29,33 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed z-10 top-0 w-full h-15 border-b flex justify-between items-center px-[20%] text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
-                <Link href="/" className="logo">
-                    DUN<span className="t-main">COP</span>
-                </Link>
-                <nav className="relative h-full flex">
-                    {nav.map((n) => (
-                        <Link
-                            href={n.path}
-                            className={`w-30 h-full flex justify-center items-center
+            <header className="fixed z-10 w-full top-0 px-5 h-13 sm:h-15 border-b text-lg bg-white dark:bg-gray1000 border-gray300 dark:border-gray900">
+                <div className="h-full w-full max-w-6xl flex justify-between items-center m-auto">
+                    <Link href="/" className="logo text-sm sm:text-base">
+                        DUN<span className="t-main">COP</span>
+                    </Link>
+                    <nav className="relative h-full flex">
+                        {nav.map((n) => (
+                            <Link
+                                href={n.path}
+                                className={`w-20 sm:w-30 text-base sm:text-lg h-full flex justify-center items-center
                             ${path !== n.path && "text-gray500 hover:text-gray700 dark:text-gray700 dark:hover:text-gray500"}`}
-                            key={n.id}
-                        >
-                            {n.name}
-                        </Link>
-                    ))}
-                    <div
-                        className={`absolute bottom-0 w-30 h-1 bg-gray1000 dark:bg-white ${path === "/" ? "" : path === "/report" ? "translate-x-30" : "opacity-0"}`}
-                    />
-                </nav>
-                <button
-                    className="w-10 h-10 flex items-center justify-center bg-gray200 hover:bg-gray300 dark:bg-gray900 dark:hover:bg-gray800 rounded-xl"
-                    onClick={themeToggleHandler}
-                >
-                    {isLightTheme ? <Sun /> : <Moon />}
-                </button>
+                                key={n.id}
+                            >
+                                {n.name}
+                            </Link>
+                        ))}
+                        <div
+                            className={`absolute bottom-0 w-20 sm:w-30 h-0.5 sm:h-1 bg-gray1000 dark:bg-white ${path === "/" ? "" : path === "/report" ? "translate-x-20 sm:translate-x-30" : "opacity-0"}`}
+                        />
+                    </nav>
+                    <button
+                        className="min-w-10 h-10 flex items-center justify-center bg-gray200 hover:bg-gray300 dark:bg-gray900 dark:hover:bg-gray800 rounded-xl"
+                        onClick={themeToggleHandler}
+                    >
+                        {isLightTheme ? <Sun /> : <Moon />}
+                    </button>
+                </div>
             </header>
         </>
     );

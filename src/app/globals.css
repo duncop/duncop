@@ -52,19 +52,6 @@ body {
 button {
     cursor: pointer;
 }
-h1 {
-    font-size: var(--text-5xl);
-    font-family: var(--font-sebang-gothic), sans-serif;
-}
-h2 {
-    font-size: var(--text-4xl);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-}
-h3 {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-}
 h4 {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
@@ -84,7 +71,19 @@ h4 {
         @apply bg-main dark:bg-main-dark;
     }
     .card {
-        @apply w-full p-10 flex flex-col gap-2 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)];
+        @apply w-full max-w-6xl m-auto p-5 sm:p-10 flex flex-col gap-2 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)];
+    }
+    .h1 {
+        @apply text-4xl sm:text-5xl;
+    }
+    .h2 {
+        @apply text-3xl sm:text-4xl font-semibold;
+    }
+    .h3 {
+        @apply text-2xl sm:text-3xl font-bold select-text cursor-default;
+    }
+    .p {
+        @apply text-sm sm:text-base;
     }
 }
 

@@ -24,10 +24,7 @@ export default function SearchForm({
     submitHandler,
 }: SearchFormProps) {
     return (
-        <form
-            className="w-xl p-10 flex flex-col gap-3 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]"
-            onSubmit={(e) => submitHandler(e)}
-        >
+        <form className="card max-w-xl" onSubmit={(e) => submitHandler(e)}>
             <div className="flex gap-3">
                 <div className="relative">
                     <Input
@@ -143,7 +140,7 @@ export default function SearchForm({
                         </button>
                     </div>
                 </div>
-                <div className="w-50">
+                <div className="min-w-20">
                     <Select
                         id="party-type"
                         options={["4인", "3인", "2인"]}
@@ -160,7 +157,7 @@ export default function SearchForm({
                 <Input
                     id="adventure-name"
                     placeholder="모험단 이름 입력"
-                    maxLength={10}
+                    maxLength={12}
                     value={form.adventure}
                     onChange={(e) =>
                         setForm((data) => ({

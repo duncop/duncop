@@ -26,7 +26,7 @@ export default function Select({
             <button
                 id={id}
                 type="button"
-                className={`dark:border-gray700 h-12.5 flex justify-between items-center border border-gray-300 pl-4 pr-2 focus:outline-none transition-colors
+                className={`dark:border-gray700 h-12.5 flex justify-between items-center border border-gray-300 pl-4 pr-2 focus:outline-none transition-colors whitespace-nowrap
                     ${isFocused ? "rounded-t-xl" : "rounded-xl"} ${!value && placeholder && "text-gray500 dark:text-gray700"}`}
                 onClick={() => setIsFocused(!isFocused)}
                 value={value}

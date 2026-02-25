@@ -17,11 +17,6 @@ const sebang_gothic = localFont({
     variable: "--font-sebang-gothic",
 });
 
-export const viewport = {
-    width: "device-width",
-    initialScale: 1,
-};
-
 export const metadata: Metadata = {
     title: "DUNCOP",
     description: "DUNCOP(던캅)은 DUNDAM 기반 벞교 컷 확인 서비스입니다.",
@@ -67,7 +62,7 @@ export default function RootLayout({
                 <ScrollToTop />
                 <ToastProvider />
                 <Header />
-                <div className="w-6xl h-full m-auto pt-30 pb-15 px-5">
+                <div className="min-h-[calc(100vh-52px)] pt-25 sm:pt-30 pb-10 sm:pb-15 px-5">
                     {children}
                 </div>
                 <Footer />

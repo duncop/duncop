@@ -123,18 +123,16 @@ export default function Main() {
             />
 
             {isSearched && adventure ? (
-                <div className="w-full">
-                    <p className="text-lg mb-2">
+                <div className="w-full max-w-6xl">
+                    <p className="sm:text-lg mb-2">
                         검색 결과 <span className="t-main">1</span>
                     </p>
-                    <div className="w-full flex gap-3">
-                        <AdventureCard
-                            characters={adventure}
-                            form={form}
-                            adventureName={adventureName}
-                            adventureBadge={adventureBadge!}
-                        />
-                    </div>
+                    <AdventureCard
+                        characters={adventure}
+                        form={form}
+                        adventureName={adventureName}
+                        adventureBadge={adventureBadge!}
+                    />
                 </div>
             ) : (
                 <Menual />

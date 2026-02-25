@@ -16,32 +16,30 @@ export default function AdventureCard({
 }) {
     if (!characters.length) {
         return (
-            <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+            <div className="card">
                 <div className="w-full flex justify-between">
-                    <div>
-                        <div className="flex gap-3 items-center">
-                            <h3 className="font-bold select-text cursor-default">
-                                {adventureName}
-                            </h3>
-                            {adventureBadge.criminal ? (
-                                <Badge type="전과자" />
-                            ) : (
-                                adventureBadge.award && <Badge type="시민상" />
-                            )}
-                        </div>
-                        <p className="text-sm text-gray600 dark:text-gray500">
-                            이내&nbsp;
-                            <span className="t-main">?</span>
-                            &nbsp;&nbsp;디레지에&nbsp;
-                            <span className="t-main">?</span>
-                            &nbsp;&nbsp;악연&nbsp;
-                            <span className="t-main">?</span>
-                        </p>
+                    <div className="flex flex-wrap gap-2 gap-y-0 mr-2">
+                        <h3 className="h3 whitespace-nowrap">
+                            {adventureName}
+                        </h3>
+                        {adventureBadge.criminal ? (
+                            <Badge type="전과자" />
+                        ) : (
+                            adventureBadge.award && <Badge type="시민상" />
+                        )}
                     </div>
-                    <div className="w-9 h-9 flex justify-center items-center rounded-full bg-yellow-400 dark:bg-yellow-300 text-white dark:text-gray900 text-2xl font-semibold">
+                    <div className="min-w-8 h-8 sm:min-w-9 sm:h-9 flex justify-center items-center rounded-full text-white dark:text-gray900 bg-yellow-400 dark:bg-yellow-300 text-xl sm:text-2xl font-semibold">
                         ?
                     </div>
                 </div>
+                <p className="text-xs sm:text-sm text-gray600 dark:text-gray500 -mt-1 mb-2">
+                    이내&nbsp;
+                    <span className="t-main">?</span>
+                    &nbsp;&nbsp;디레지에&nbsp;
+                    <span className="t-main">?</span>
+                    &nbsp;&nbsp;악연&nbsp;
+                    <span className="t-main">?</span>
+                </p>
 
                 <div className="w-full flex gap-3">
                     <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
@@ -75,36 +73,18 @@ export default function AdventureCard({
     );
 
     return (
-        <div className="w-full p-10 flex flex-col gap-4 border border-gray300 dark:border-none dark:bg-gray900 rounded-2xl shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+        <div className="card">
             <div className="w-full flex justify-between">
-                <div>
-                    <div className="flex gap-3 items-center">
-                        <h3 className="font-bold select-text cursor-default">
-                            {adventureName}
-                        </h3>
-                        {adventureBadge.criminal ? (
-                            <Badge type="전과자" />
-                        ) : (
-                            adventureBadge.award && <Badge type="시민상" />
-                        )}
-                    </div>
-                    <p className="text-sm text-gray600 dark:text-gray500">
-                        이내&nbsp;
-                        <span className="t-main">
-                            {characters[0].advenInae}
-                        </span>
-                        &nbsp;&nbsp;디레지에&nbsp;
-                        <span className="t-main">
-                            {characters[0].advenDire}
-                        </span>
-                        &nbsp;&nbsp;악연&nbsp;
-                        <span className="t-main">
-                            {characters[0].advenDireHard}
-                        </span>
-                    </p>
+                <div className="flex flex-wrap gap-2 gap-y-0 mr-2">
+                    <h3 className="h3 whitespace-nowrap">{adventureName}</h3>
+                    {adventureBadge.criminal ? (
+                        <Badge type="전과자" />
+                    ) : (
+                        adventureBadge.award && <Badge type="시민상" />
+                    )}
                 </div>
                 <div
-                    className={`w-9 h-9 flex justify-center items-center rounded-full text-white dark:text-gray900
+                    className={`min-w-8 h-8 sm:min-w-9 sm:h-9 flex justify-center items-center rounded-full text-white dark:text-gray900
                     ${
                         dealer_list.length >= +form.dealerCount &&
                         buffer_list.length >= +form.bufferCount
@@ -114,16 +94,43 @@ export default function AdventureCard({
                 >
                     {dealer_list.length >= +form.dealerCount &&
                     buffer_list.length >= +form.bufferCount ? (
-                        <Check strokeWidth={3} />
+                        <>
+                            <Check
+                                strokeWidth={3}
+                                className="hidden sm:block"
+                            />
+                            <Check
+                                strokeWidth={3}
+                                size={20}
+                                className="sm:hidden"
+                            />
+                        </>
                     ) : (
-                        <X strokeWidth={3} />
+                        <>
+                            <X strokeWidth={3} className="hidden sm:block" />
+                            <X
+                                strokeWidth={3}
+                                size={20}
+                                className="sm:hidden"
+                            />
+                        </>
                     )}
                 </div>
             </div>
+            <p className="text-xs sm:text-sm text-gray600 dark:text-gray500 -mt-1 mb-2">
+                이내&nbsp;
+                <span className="t-main">{characters[0].advenInae}</span>
+                &nbsp;&nbsp;디레지에&nbsp;
+                <span className="t-main">{characters[0].advenDire}</span>
+                &nbsp;&nbsp;악연&nbsp;
+                <span className="t-main">{characters[0].advenDireHard}</span>
+            </p>
 
             <div className="w-full flex gap-3">
-                <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
-                    <p className="font-normal">컷 만족 딜러</p>
+                <div className="w-full bg-gray100 dark:bg-gray800 p-3 sm:p-5 rounded-xl">
+                    <p className="font-normal text-sm sm:text-base">
+                        컷 만족 딜러
+                    </p>
                     <p className="font-semibold text-xl">
                         <span
                             className={`font-bold text-3xl ${dealer_list.length < +form.dealerCount ? "text-red" : "t-main"}`}
@@ -133,8 +140,10 @@ export default function AdventureCard({
                         명
                     </p>
                 </div>
-                <div className="w-full bg-gray100 dark:bg-gray800 p-5 rounded-xl">
-                    <p className="font-normal">컷 만족 버퍼</p>
+                <div className="w-full bg-gray100 dark:bg-gray800 p-3 sm:p-5 rounded-xl">
+                    <p className="font-normal text-sm sm:text-base">
+                        컷 만족 버퍼
+                    </p>
                     <p className="font-semibold text-xl">
                         <span
                             className={`font-bold text-3xl ${buffer_list.length < +form.bufferCount ? "text-red" : "t-main"}`}
@@ -146,7 +155,7 @@ export default function AdventureCard({
                 </div>
             </div>
 
-            <div className="w-full flex gap-3">
+            <div className="w-full gap-3 hidden sm:flex">
                 <ul className="w-full flex flex-col gap-3">
                     {dealer_list.map((d, i) => (
                         <div key={d.key} className="w-full flex flex-col gap-3">

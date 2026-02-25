@@ -2,8 +2,8 @@ import Main from "@/components/Main";
 
 export default function Home() {
     return (
-        <div className="gap-10 flex flex-col items-center">
-            <h1>
+        <div className="gap-5 sm:gap-10 flex flex-col items-center">
+            <h1 className="h1 logo">
                 DUN<span className="t-main">COP</span>
             </h1>
             <Main />
