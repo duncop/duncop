@@ -4,8 +4,6 @@
 
 ### DUNDAM 기반 벞교 컷 확인 서비스
 
-[🔗 DUNCOP 바로가기]("duncop.xyz")
-
 ## 프로젝트 개요
 
 **DUNCOP(던캅)** 은
